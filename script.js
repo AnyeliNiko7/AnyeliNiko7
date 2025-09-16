@@ -1,18 +1,14 @@
 // Constantes para el administrador
-const ADMIN_USER = "niko"; // Tu usuario de administrador
-const ADMIN_PASS = "123"; // Tu contraseña de administrador
+const ADMIN_USER = "niko";
+const ADMIN_PASS = "123";
 
 // URL base de tu repositorio en GitHub Pages
-const REPO_URL = "https://angynikolhucu.github.io/angynikolhucu/";
+const REPO_URL = "https://anyeliniko7.github.io/AnyeliNiko7/index.html";
 const PDF_FOLDER = "pdfs/";
 
 // ---------------- GESTIÓN DE ACTIVIDADES ----------------
-
-// Actividades base que no se pueden eliminar
-const baseActividades = [
-    // Asegúrate de que el archivo 'ejemplo.pdf' exista en la carpeta 'pdfs/'
-    { nombre: "Mi primera actividad", archivo: "ejemplo.pdf" }
-];
+// La lista base ahora está vacía para que no aparezca ninguna actividad por defecto.
+const baseActividades = [];
 
 function getActividades() {
     let actividadesGuardadas = JSON.parse(localStorage.getItem("actividades")) || [];
@@ -42,7 +38,7 @@ function loadActivities() {
     const actividades = getActividades();
     
     if (actividades.length === 0) {
-        activitiesList.innerHTML = '<p>No hay actividades disponibles.</p>';
+        activitiesList.innerHTML = '<p>No hay actividades disponibles. Sube tu primera actividad desde el panel de administrador.</p>';
         return;
     }
     
@@ -114,6 +110,8 @@ function initAdminPage() {
             loadAdminActivities();
         });
     }
+    
+    loadAdminActivities();
 }
 
 function showAdminPanel() {
@@ -170,9 +168,8 @@ function loadAdminActivities() {
     }).join('');
 }
 
-// ---------------- EFECTOS Y NAVEGACIÓN ----------------
 
-// Gestión de la navegación móvil
+// ---------------- EFECTOS Y NAVEGACIÓN ----------------
 function setupNavigation() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
@@ -190,8 +187,7 @@ function setupNavigation() {
     }
 }
 
-// Efecto de Nieve
-function createSnowflakes() {
+function createSnowflakes() { 
     const snowContainer = document.createElement('div');
     snowContainer.className = 'snow-container';
     snowContainer.id = 'snow-container';
@@ -225,7 +221,6 @@ function createSnowflakes() {
     setInterval(createSnowflake, 400);
 }
 
-// Fondo Neon
 function createNeonBackground() {
     const neonBackground = document.createElement('div');
     neonBackground.className = 'neon-background';
@@ -249,7 +244,6 @@ function createNeonBackground() {
     document.body.appendChild(neonBackground);
 }
 
-// Efecto de máquina de escribir
 function typeWriterEffect(element, text, speed) {
     let i = 0;
     element.textContent = '';
@@ -290,7 +284,6 @@ function startTyping() {
 }
 
 // ---------------- INICIALIZACIÓN ----------------
-
 document.addEventListener('DOMContentLoaded', function() {
     setupNavigation();
     createSnowflakes();
